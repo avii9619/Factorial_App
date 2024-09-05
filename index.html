@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Factorial App</title>
+        <style>
+            *{
+                font-size: 40px;
+            }
+            h1{
+                background-color: black;
+                color: white;
+                width: 50%;
+                border-radius: 40px;
+            }
+            .btn{
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <center>
+            <h1>Factorial App</h1>
+            <form onsubmit="fact()">
+                <input type="number" placeholder="Enter Number" id="num"/>
+                <br/><br/>
+                <input type="submit" value="M1" class="btn"/>
+                <input type="submit" value="M2" class="btn"/>
+                <input type="submit" value="M3" class="btn"/>
+            </form>
+            <h2 id="msg"/>
+
+
+            <script>
+                function fact()
+                {
+                    event.preventDefault();
+                    let num=document.getElementById("num");
+                    let msg=document.getElementById("msg");
+                    let action=document.activeElement.value;
+
+                    //validation
+                    if((num.value=="")&&(num.value<1)){
+                        alert("Enter Number");
+                        msg.innerHTML="";
+                        num.focus();
+                        return;
+                    }
+
+                    let n=parseInt(num.value);
+
+                    if(action==="M1"){
+                        let f=1,i=1;
+
+                        while(i<=n){
+                            f=f*i;
+                            i++;
+                        }
+                        msg.innerHTML="M1==>  "+f;
+                    }else if(action==="M2"){
+                        let f=1,i=1;
+                        do{
+                            f=f*i;
+                            i++;
+                        }while(i<=n)
+                        msg.innerHTML="M2==>  "+f;
+                        
+                    }
+                    else if(action==="M3"){
+                        let f=1;
+                        for(let i=1;i<=n;i++){
+                            f=f*i;
+                        }
+                        msg.innerHTML="M3==>  "+f;
+                    }
+
+                }
+            </script>
+        </center>
+    </body>
+</html>
